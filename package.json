@@ -8,7 +8,7 @@
     "publish": "npmPublish",
     "start": "npm run storybook:react",
     "storybook:react": "npx storybook -p 5009 -c react/.storybook",
-    "test": "cypress run",
+    "test": "cypress run"
   },
   "keywords": [
     "cypress",

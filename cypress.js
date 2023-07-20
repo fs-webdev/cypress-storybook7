@@ -5,6 +5,7 @@ Cypress.Commands.add('visitStorybook', (options) => {
 })
 
 Cypress.Commands.add('loadStory', (categorization, story) => {
+  console.log('hi joey loadStory')
   const log = Cypress.log({
     name: 'Load',
     message: [categorization, story],

@@ -1,5 +1,6 @@
-import addons from '@storybook/addons'
 import Events from '@storybook/core-events'
+import { addons } from '@storybook/preview-api'
+
 
 // Collect actions emitted by storybook/addon-actions
 window.__actions = {}

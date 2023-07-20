@@ -8,7 +8,7 @@ This library contains helper methods to integrate Cypress and Storybook. It cont
 npm install cypress-storybook --save-dev
 ```
 
-Once installed, both Cypress and Storybook need to be configured in order to work. Storybook installation will be based on the framework used (React and Angular are currently supported).
+Once installed, both Cypress and Storybook need to be configured in order to work. Storybook installation will be based on the framework used (React is currently supported).
 
 ### Cypress
 
@@ -33,22 +33,15 @@ If your project has Cypress tests for both Storybook and true end-to-end, you ma
 
 ### Storybook
 
-There are adapters for different frameworks. Currently React and Angular are supported.
+There are adapters for different frameworks. Currently React is supported.
 
 The following will set up the Storybook app to understand the Cypress commands. It will register hidden functions on the `window` of the iframe Storybook uses for stories:
 
 ### React Storybook
 
 ```js
-// .storybook/config.js (v5) or .storybook/preview.js (v6)
+//  .storybook/preview.js (v6)
 import 'cypress-storybook/react'
-```
-
-### Angular Storybook
-
-```js
-// .storybook/config.js (v5) or .storybook/preview.js (v6)
-import 'cypress-storybook/angular'
 ```
 
 ## Use
@@ -58,26 +51,6 @@ Storybook is a great tool for developing UI. It encourages separation of UI deve
 This library works by loading the `iframe.html` which is blank since no story has been specified. Stories are later mounted using the Storybook routing API to unmount and mount/remount stories by their identifiers. Loading stories does not require a refresh of the Story page (`iframe.html`). The previous story is unmounted from the DOM and the next story is requested from the Storybook router API. Mounting a story takes milliseconds compared to seconds of reloading the entire page. This allows for faster tests.
 
 This library only works if Stories don't leave behind some global state. It is recommended that your stories provide their own state. If you use a global store like Redux, be sure that each story has its own store provider so that the store is created for each story.
-
-### Controls/Args
-
-Args are supported. It is possible to use Args where all properties are controls. Changing an Arg will automatically update a story. Controls implicitly use the Actions addon (see Actions below).
-
-Example:
-
-```js
-cy.changeArg('buttonText', 'New Text Value')
-```
-
-### Knobs
-
-Knobs are supported. It is possible to create a story where all properties are knob imports and change those inputs during a test. Changing a knob will refresh the story clearing any previous changes to the story. Be sure to change knobs at the start of a test.
-
-Example:
-
-```js
-cy.changeKnob('buttonText', 'New Text Value')
-```
 
 ### Actions
 

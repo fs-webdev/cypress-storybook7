@@ -4,10 +4,11 @@
   "description": "Cypress commands for Storybook 7 projects",
   "main": "cypress.js",
   "scripts": {
-    "test": "cypress run",
+    "build-storybook": "build-storybook",
+    "publish": "npmPublish",
     "start": "npm run storybook:react",
     "storybook:react": "npx storybook -p 5009 -c react/.storybook",
-    "build-storybook": "build-storybook"
+    "test": "cypress run",
   },
   "keywords": [
     "cypress",
@@ -21,6 +22,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@compodoc/compodoc": "^1.1.11",
+    "@fs/npm-publisher": "^1.5.2",
     "@storybook/addon-actions": "^7.1.0",
     "@storybook/addon-essentials": "^7.1.0",
     "@storybook/addon-knobs": "^7.0.2",
@@ -46,6 +48,5 @@
   },
   "peerDependencies": {
     "cypress": "*"
-  },
-  "dependencies": {}
+  }
 }

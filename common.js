@@ -66,7 +66,6 @@ export function changeKnob(changedKnob) {
 }
 
 export function changeArg(updatedArgs) {
-  console.log(updatedArgs)
   addons
     .getChannel()
     .emit(Events.UPDATE_STORY_ARGS, {

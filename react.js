@@ -5,7 +5,7 @@ import { forceReRender } from '@storybook/react'
 import { setCurrentStory } from './common'
 
 function clearCurrentStory() {
-  var root = document.querySelector('#root')
+  var root = document.querySelector('#storybook-root')
   if (root) {
     ReactDOM.unmountComponentAtNode(root)
   }

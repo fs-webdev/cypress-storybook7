@@ -1,3 +1,13 @@
+### 1.1.0
+
+- Fixed the root div to storybook-root div that Storybook changed in storybook7
+- during loadStory, remove the Storybook skeletons that are loaded before the stories.
+
+### 1.0.0 - forked into fs-webdev
+
+- Updating to be storybook7 compliant
+- Removing some unused stuff like angular that we don't care about
+
 ### 0.5.0
 
 - feat: Add Args support and Angular support (#20)

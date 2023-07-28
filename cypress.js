@@ -5,11 +5,10 @@ Cypress.Commands.add('visitStorybook', (options) => {
 })
 
 Cypress.Commands.add('loadStory', (categorization, story) => {
-  console.log('hi joey loadStory')
   const log = Cypress.log({
     name: 'Load',
     message: [categorization, story],
-    $el: Cypress.$('#root'),
+    $el: Cypress.$('#storybook-root'),
   })
   log.snapshot('before')
 
@@ -30,14 +29,24 @@ Cypress.Commands.add('loadStory', (categorization, story) => {
   log.snapshot('after')
   log.end()
 
-  return Cypress.$('#root')
+  cy.get('.sb-preparing-docs').then((elem) => {
+    const elemHtml = elem.get(0)
+    elemHtml.remove()
+  })
+  cy.get('.sb-preparing-story').then((elem) => {
+    const elemHtml = elem.get(0)
+    elemHtml.remove()
+  })
+
+  return undefined
+  // return Cypress.$('#storybook-root')
 })
 
 Cypress.Commands.add('changeKnob', (name, value) => {
   const log = Cypress.log({
     name: 'Knob',
     message: [name, value],
-    $el: Cypress.$('#root'),
+    $el: Cypress.$('#storybook-root'),
   })
 
   log.snapshot('before')
@@ -63,7 +72,7 @@ Cypress.Commands.add('changeArg', (name, value) => {
   const log = Cypress.log({
     name: 'Arg',
     message: [name, value],
-    $el: Cypress.$('#root'),
+    $el: Cypress.$('#storybook-root'),
   })
 
   log.snapshot('before')

@@ -5,7 +5,7 @@ import { FORCE_RE_RENDER } from '@storybook/core-events'
 import { setCurrentStory, changeKnob } from './common'
 
 function clearCurrentStory() {
-  var root = document.querySelector('#root')
+  var root = document.querySelector('#storybook-root')
   ReactDOM.unmountComponentAtNode(root)
 }
 

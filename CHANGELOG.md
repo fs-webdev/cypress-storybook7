@@ -1,6 +1,6 @@
-### 1.2.0
+### 1.2.1
 
-- Changed import of forceReRender to new storybook7 way
+- fixed a regression I introduced from a copy/paste
 
 ### 1.1.0
 

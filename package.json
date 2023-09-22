@@ -1,6 +1,6 @@
 {
   "name": "@fs/cypress-storybook7",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Cypress commands for Storybook 7 projects",
   "main": "cypress.js",
   "scripts": {

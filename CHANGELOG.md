@@ -1,3 +1,7 @@
+### 1.2.0
+
+- Changed import of forceReRender to new storybook7 way
+
 ### 1.1.0
 
 - Fixed the root div to storybook-root div that Storybook changed in storybook7

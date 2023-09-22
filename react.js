@@ -1,18 +1,27 @@
 import ReactDOM from 'react-dom'
+import { addons } from '@storybook/preview-api'
+import { FORCE_RE_RENDER } from '@storybook/core-events'
 
-import { forceReRender } from '@storybook/react'
-
-import { setCurrentStory } from './common'
+import { setCurrentStory, changeKnob } from './common'
 
 function clearCurrentStory() {
-  var root = document.querySelector('#storybook-root')
-  if (root) {
-    ReactDOM.unmountComponentAtNode(root)
-  }
+  var root = document.querySelector('#root')
+  ReactDOM.unmountComponentAtNode(root)
 }
 
-window.__setCurrentStory = function (categorization, story) {
+window.__setCurrentStory = function(categorization, story) {
   clearCurrentStory()
   setCurrentStory(categorization, story)
   forceReRender()
+}
+
+window.__changeKnob = function(changedKnob) {
+  changeKnob(changedKnob)
+
+  // force story to rerender with updated knob
+  forceReRender()
+}
+
+function forceReRender() {
+  addons.getChannel().emit(FORCE_RE_RENDER)
 }

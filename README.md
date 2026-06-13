@@ -1,6 +1,10 @@
+> [!WARNING]
+> **This repository has been archived.** Development has moved to [fs-webdev/cypress-storybook](https://github.com/fs-webdev/cypress-storybook).
+> Please update your dependencies and open any new issues or PRs there.
+
 # Cypress Storybook
 
-This library contains helper methods to integrate Cypress and Storybook. It contains helpful Cypress commands for loading stories in a way that doesn't require a full reload of the application, allowing tests/specifications to be run much faster.
+This library contains helper methods to integrate Cypress and Storybook. It contains helpful Cypress commands for loading stories in a way that does not require a full reload of the application, allowing tests/specifications to be run much faster.
 
 ## Installation
 
@@ -50,7 +54,7 @@ Storybook is a great tool for developing UI. It encourages separation of UI deve
 
 This library works by loading the `iframe.html` which is blank since no story has been specified. Stories are later mounted using the Storybook routing API to unmount and mount/remount stories by their identifiers. Loading stories does not require a refresh of the Story page (`iframe.html`). The previous story is unmounted from the DOM and the next story is requested from the Storybook router API. Mounting a story takes milliseconds compared to seconds of reloading the entire page. This allows for faster tests.
 
-This library only works if Stories don't leave behind some global state. It is recommended that your stories provide their own state. If you use a global store like Redux, be sure that each story has its own store provider so that the store is created for each story.
+This library only works if Stories do not leave behind some global state. It is recommended that your stories provide their own state. If you use a global store like Redux, be sure that each story has its own store provider so that the store is created for each story.
 
 ### Actions
 

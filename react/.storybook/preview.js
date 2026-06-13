@@ -1,5 +1,10 @@
 import '../../react'
 
-export const parameters = {
-  actions: { argTypesRegex: '^on.*' },
+/** @type { import('@storybook/react').Preview } */
+const preview = {
+  parameters: {
+    actions: { argTypesRegex: '^on.*' },
+  },
 }
+
+export default preview

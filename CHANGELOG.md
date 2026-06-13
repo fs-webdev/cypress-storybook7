@@ -1,3 +1,12 @@
+### 2.0.0
+
+- Node 24 minimum (engines field added)
+- Storybook 8 support: peerDependencies now accepts `^7 || ^8`
+- React 18 compatibility: `clearCurrentStory` no longer calls deprecated `ReactDOM.unmountComponentAtNode` when React 18's `createRoot` is present; story teardown is handled by Storybook's `SET_CURRENT_STORY` event in that case
+- Updated dev Storybook to `^8.0.0`, React to `^18.0.0`
+- `.storybook/main.js` updated to SB8 format (Vite framework, removed deprecated `@storybook/addon-knobs`)
+- Removed `@storybook/addon-knobs` dev dep (deprecated since SB6)
+
 ### 1.2.1
 
 - fixed a regression I introduced from a copy/paste

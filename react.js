@@ -5,8 +5,14 @@ import { FORCE_RE_RENDER } from '@storybook/core-events'
 import { setCurrentStory, changeKnob } from './common'
 
 function clearCurrentStory() {
-  var root = document.querySelector('#storybook-root')
-  ReactDOM.unmountComponentAtNode(root)
+  var rootEl = document.querySelector('#storybook-root')
+  if (!rootEl) return
+  // React 18 renders via createRoot; unmountComponentAtNode is the React 17 legacy API
+  // and silently fails on createRoot-managed nodes. In React 18, Storybook handles
+  // story teardown internally when SET_CURRENT_STORY fires, so we skip manual unmount.
+  if (typeof ReactDOM.createRoot !== 'function') {
+    ReactDOM.unmountComponentAtNode(rootEl)
+  }
 }
 
 window.__setCurrentStory = function(categorization, story) {
